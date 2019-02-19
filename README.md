@@ -12,7 +12,8 @@ TBD
 ## Running
 TBD
 
-## Requirements
+
+## High-Level Requirements
 The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from a file,
 solve the sudoku problem, and finally update the original file with the
 solved instance. When there is no infeasible solution available, the program
@@ -34,6 +35,8 @@ Instance_Solver components send back the completed sudoku instance to the Main
 component via the CSV_Encoding component.
 
 ![Software Design](img/sw_design.png)
+
+## Low-Level Requirements
 TBD
 
 ## Collecting Evidence
