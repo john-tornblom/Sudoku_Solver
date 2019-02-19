@@ -39,7 +39,7 @@ component via the CSV_Encoding component.
 ## Low-Level Requirements
 TBD
 
-## Collecting Evidence
+## Verification Procedure
 TBD
 
 ## Reporting Bugs
