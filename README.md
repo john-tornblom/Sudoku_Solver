@@ -18,6 +18,22 @@ solve the sudoku problem, and finally update the original file with the
 solved instance. When there is no infeasible solution available, the program
 shall terminate with an error code.
 
+## Software Design
+Sudoku_Solver operates on a CSV file with 9 rows and 9 columns, where each cell
+is seperated by the comma character, and each row is seperated by a linebreak.
+No spaces, comments, or headers are allowed in the CSV file. Each cell must
+contain a single digit between zero and nine, where zero represents incomplete
+sudoku values. Consequently, each CSV file is exactly 162 characters long (18*9).
+Internally, the content of a CSV file is refered to as a sudoku instance, and is
+represented as a 9x9 integer matrix in the Instance_Solver component.
+
+The Main component loads a sudoku instance from a file identified by the first
+command line argument, then sends its content to the Instance_Solver component
+via the CSV_Decoding components. When a solution is discovered, the
+Instance_Solver components send back the completed sudoku instance to the Main
+component via the CSV_Encoding component.
+
+![Software Design](img/sw_design.png)
 TBD
 
 ## Collecting Evidence
