@@ -25,4 +25,4 @@ an issue before you start to work on you changes. This will allow us to discuss
 the solution properly before you commit time and effort.
 
 ## License
-TBD
+Sudoku_Solver is licensed under the GPLv3, see LICENSE for more information.
