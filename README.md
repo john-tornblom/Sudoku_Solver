@@ -13,6 +13,11 @@ TBD
 TBD
 
 ## Requirements
+The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from a file,
+solve the sudoku problem, and finally update the original file with the
+solved instance. When there is no infeasible solution available, the program
+shall terminate with an error code.
+
 TBD
 
 ## Collecting Evidence
