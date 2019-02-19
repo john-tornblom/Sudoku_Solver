@@ -18,7 +18,11 @@ TBD
 TBD
 
 ## Reporting Bugs
-TBD
+If you encounter problems with Sudoku_Solver, please [file a github issue]
+(https://github.com/john-tornblom/Sudoku_Solver/issues/new). If you plan on
+sending pull requests which affect more than a few lines of code, please file
+an issue before you start to work on you changes. This will allow us to discuss
+the solution properly before you commit time and effort.
 
 ## License
 TBD
