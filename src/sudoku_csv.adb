@@ -35,6 +35,7 @@ package body Sudoku_CSV with SPARK_Mode is
       Pos         : Positive := Positive'First;
       Text_Length : constant               := 2 * (Board_Dimension**2);
       New_Line    : constant String(1..1)  := "" & Character'Val(10);
+      End_Of_Line : constant String(1..1)  := "" & Character'Val(0);
       Text        : String(1..Text_Length) := "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
@@ -43,7 +44,7 @@ package body Sudoku_CSV with SPARK_Mode is
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
-                                              "0,0,0,0,0,0,0,0,0" & New_Line;
+                                              "0,0,0,0,0,0,0,0,0" & End_Of_Line;
    begin
       for Index in Instance_Type'Range loop
          case Instance(Index) is
