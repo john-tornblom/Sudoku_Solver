@@ -14,8 +14,8 @@ gprbuild sudoku_solver.gpr
 ./obj/main < examples/world_hardest_sudoku.csv 
 
 ## High-Level Requirements
-The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from STDIN,
-solve the sudoku problem, and finally emit the solved instance to STDOUT.
+The Sudoku_Solver shall load an (incomplete) 9x9 Sudoku instance from STDIN,
+solve the Sudoku problem, and finally emit the solved instance to STDOUT.
 When there is no infeasible solution available, the program shall terminate
 with an error code.
 
