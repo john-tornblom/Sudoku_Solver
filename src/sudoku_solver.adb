@@ -79,7 +79,7 @@ package body Sudoku_Solver with SPARK_Mode is
    
    function Is_Complete(Instance: in Instance_Type) return Boolean is
    begin
-      for I in Instance'Range loop
+      for I in Instance_Type'Range loop
          if Instance(I) = 0 then
             return False;
          end if;

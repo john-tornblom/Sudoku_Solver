@@ -45,7 +45,7 @@ package body Sudoku_CSV with SPARK_Mode is
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line;
    begin
-      for Index in Instance'Range loop         
+      for Index in Instance_Type'Range loop
          case Instance(Index) is
             when 0 => Text(Pos) := '0';
             when 1 => Text(Pos) := '1';
