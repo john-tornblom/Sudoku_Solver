@@ -8,10 +8,14 @@ verified formally. Furthermore, Ada SPARK can also guarantee the absence of
 runtime errors, e.g. illegal assignments to ranged types.
 
 ## Building
-gprbuild sudoku_solver.gpr
+```console
+john@localhost:Sudoku_Solver$ gprbuild sudoku_solver.gpr
+```
 
 ## Running
-./obj/main < examples/world_hardest_sudoku.csv 
+```console
+john@localhost:Sudoku_Solver$ ./obj/main < examples/world_hardest_sudoku.csv 
+```
 
 ## High-Level Requirements
 The Sudoku_Solver shall load an (incomplete) 9x9 Sudoku instance from STDIN,
