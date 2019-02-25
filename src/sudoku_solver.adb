@@ -88,9 +88,9 @@ package body Sudoku_Solver with SPARK_Mode is
    end Is_Complete;
    
    procedure Solve(Instance: in out Instance_Type; Is_Solved: in out Boolean) is
-      Excluded_Digits : array(Digit_Type'Range) of Boolean := (others => False);
-      I               : Index_Type                         := Index_Type'First;
-      Candidate       : Instance_Type;
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      I         : Index_Type                         := Index_Type'First;
+      Candidate : Instance_Type;
    begin
 
       if Is_Complete(Instance) then
@@ -104,12 +104,12 @@ package body Sudoku_Solver with SPARK_Mode is
 
       for J in Index_Type'Range loop
          if Same_Row(I, J) or Same_Col(I, J) or Same_Box(I, J) then
-            Excluded_Digits(Instance(J)) := True;
+            Digit_Map(Instance(J)) := True;
          end if;
       end loop;
             
       for J in Digit_Type'Range loop
-         if not Excluded_Digits(J) then
+         if not Digit_Map(J) then
             Candidate := Instance;
             Candidate(I) := J;
             Solve(Candidate, Is_Solved);
