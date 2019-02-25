@@ -33,7 +33,7 @@ package body Sudoku_CSV with SPARK_Mode is
    
    function Encode(Instance : in Instance_Type) return String is
       Pos         : Positive := Positive'First;
-      Text_Length : constant Positive      := 2 * (Board_Dimension**2);
+      Text_Length : constant               := 2 * (Board_Dimension**2);
       New_Line    : constant String(1..1)  := "" & Character'Val(10);
       Text        : String(1..Text_Length) := "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &

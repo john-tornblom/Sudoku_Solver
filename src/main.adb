@@ -8,7 +8,7 @@ with Sudoku_Solver;
 procedure Main is
    Instance    : Sudoku_Types.Instance_Type;
    Is_Solved   : Boolean                := False;
-   Text_Length : constant Positive      := 2*(Sudoku_Types.Board_Dimension**2);
+   Text_Length : constant               := 2*(Sudoku_Types.Board_Dimension**2);
    Text        : String(1..Text_Length) := (others => ' ');
 
 begin
