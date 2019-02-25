@@ -24,15 +24,15 @@ Sudoku_Solver operates on a CSV file with 9 rows and 9 columns, where each cell
 is separated by the comma character, and each row is separated by a linebreak.
 No spaces, comments, or headers are allowed in the CSV file. Each cell must
 contain a single digit between zero and nine, where zero represents incomplete
-sudoku values. Consequently, each CSV file is exactly 162 characters long (18*9).
-Internally, the content of a CSV file is refered to as a sudoku instance, and is
-represented as a 9x9 integer matrix in the Instance_Solver component.
+Sudoku values. Consequently, each CSV file is exactly 162 characters long (18*9).
+Internally, the content of a CSV file is refereed to as a Sudoku instance,
+an array of 81 digits (0-9).
 
-The Main component loads a sudoku instance from a file identified by the first
-command line argument, then sends its content to the Instance_Solver component
-via the CSV_Decoding components. When a solution is discovered, the
-Instance_Solver components send back the completed sudoku instance to the Main
-component via the CSV_Encoding component.
+The Main component reads text from STDIN using a Runtime component provided by
+Ada SPARK, decodes the text into a Sudoku instance using the Sudoku_CSV component,
+then sends the instance to the Sudoku_Solver component. When the Sudoku_Solver
+finds a solution, the Main component encodes the solved instance into CSV text
+and emits it to STDOUT using the Runtime component.
 
 ![Software Design](img/sw_design.png)
 
