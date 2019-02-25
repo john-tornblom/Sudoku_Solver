@@ -4,7 +4,8 @@ Sudoku_Solver is an automated solver for the game
 The solver in written in
 [Ada SPARK](https://en.wikipedia.org/wiki/SPARK_(programming_language)),
 and thus evidence for compliance with respect to some requirements may be
-verified formally.
+verified formally. Furthermore, Ada SPARK can also guarantee the absence of
+runtime errors, e.g. illegal assignments to ranged types.
 
 ## Building
 gprbuild sudoku_solver.gpr
