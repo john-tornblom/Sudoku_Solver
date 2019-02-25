@@ -20,7 +20,7 @@ with an error code.
 
 ## Software Design
 Sudoku_Solver operates on a CSV file with 9 rows and 9 columns, where each cell
-is seperated by the comma character, and each row is seperated by a linebreak.
+is separated by the comma character, and each row is separated by a linebreak.
 No spaces, comments, or headers are allowed in the CSV file. Each cell must
 contain a single digit between zero and nine, where zero represents incomplete
 sudoku values. Consequently, each CSV file is exactly 162 characters long (18*9).
