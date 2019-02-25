@@ -22,6 +22,61 @@ package body Sudoku_Solver with SPARK_Mode is
              );
    end Same_Box;
    
+   function Valid_Row(Instance: in Instance_Type; Row_Id : Group_Type) return Boolean is
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      Offset    : constant Index_Type := Row_Id * Board_Dimension;
+      Digit     : Digit_Type;
+   begin
+      for Index in Group_Type'Range loop
+         Digit := Instance(Offset + Index);
+         if Digit_Map(Digit) then
+            return False;
+         end if;
+         if Digit /= 0 then
+            Digit_Map(Digit) := True;
+         end if;
+      end loop;
+      return True;
+   end Valid_Row;
+   
+   function Valid_Col(Instance: in Instance_Type; Col_Id : Group_Type) return Boolean is
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      Index     : constant Index_Type := Col_Id * Board_Dimension;
+      Digit     : Digit_Type;
+   begin
+      for Offset in Group_Type'Range loop
+         Digit := Instance(Offset + Index);
+         if Digit_Map(Digit) then
+            return False;
+         end if;
+         if Digit /= 0 then
+            Digit_Map(Digit) := True;
+         end if;
+      end loop;
+      return True;
+   end Valid_Col;
+
+   function Valid_Box(Instance: in Instance_Type; Box_Id : Group_Type) return Boolean is
+   begin
+      return True;
+   end Valid_Box;
+
+   function Is_Valid(Instance: in Instance_Type) return Boolean is
+   begin
+      for Id in Group_Type'Range loop
+         if not Valid_Row(Instance, Id) then
+            return False;
+         end if;
+         if not Valid_Col(Instance, Id) then
+            return False;
+         end if;
+         if not Valid_Box(Instance, Id) then
+            return False;
+         end if;
+      end loop;
+      return True;
+   end Is_Valid;
+   
    function Is_Complete(Instance: in Instance_Type) return Boolean is
    begin
       for I in Instance'Range loop
@@ -39,7 +94,7 @@ package body Sudoku_Solver with SPARK_Mode is
    begin
 
       if Is_Complete(Instance) then
-         Is_Solved := True;
+         Is_Solved := Is_Valid(Instance);
          return;
       end if;
       
