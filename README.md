@@ -20,9 +20,9 @@ john@localhost:Sudoku_Solver$ ./obj/main < examples/world_hardest_sudoku.csv
 ## Requirements
 The Sudoku_Solver shall load an (incomplete) 9x9 Sudoku instance from STDIN,
 solve the Sudoku problem, and finally emit the solved instance to STDOUT.
-A Sudoku instance is solved when each row, column, and box in a solved instance
-shall contain all digits in the range [1-9]. When there is no infeasible solution
-available, the program shall terminate with an error code.
+A Sudoku instance is solved when each row, column, and box contains all digits
+in the range [1-9]. When there is no infeasible solution available, the program
+shall terminate with an error code.
 
 ## Software Design
 Sudoku_Solver operates on a CSV file with 9 rows and 9 columns, where each cell
