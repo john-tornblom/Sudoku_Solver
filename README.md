@@ -41,9 +41,6 @@ and emits it to STDOUT using the Runtime component.
 
 ![Software Design](img/sw_design.png)
 
-## Low-Level Requirements
-TBD
-
 ## Verification Procedure
 TBD
 
