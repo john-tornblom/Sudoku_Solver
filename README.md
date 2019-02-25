@@ -13,10 +13,10 @@ gprbuild sudoku_solver.gpr
 ./obj/main < examples/world_hardest_sudoku.csv 
 
 ## High-Level Requirements
-The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from a file,
-solve the sudoku problem, and finally update the original file with the
-solved instance. When there is no infeasible solution available, the program
-shall terminate with an error code.
+The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from STDIN,
+solve the sudoku problem, and finally emit the solved instance to STDOUT.
+When there is no infeasible solution available, the program shall terminate
+with an error code.
 
 ## Software Design
 Sudoku_Solver operates on a CSV file with 9 rows and 9 columns, where each cell
