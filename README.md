@@ -9,12 +9,12 @@ runtime errors, e.g. illegal assignments to ranged types.
 
 ## Building
 ```console
-john@localhost:Sudoku_Solver$ gprbuild sudoku_solver.gpr
+john@localhost:Sudoku_Solver$ make
 ```
 
 ## Running
 ```console
-john@localhost:Sudoku_Solver$ ./obj/main < examples/world_hardest_sudoku.csv 
+john@localhost:Sudoku_Solver$ ./sudoku < ./examples/world_hardest_sudoku.csv
 ```
 
 ## Requirements

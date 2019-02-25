@@ -8,13 +8,13 @@ RM    := rm
 
 ROOTDIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
-all: main
+all: $(ROOTDIR)/sudoku
 
 $(ROOTDIR)/obj:
 	$(MKDIR) $(ROOTDIR)/obj
 
-main: $(ROOTDIR)/obj
-	$(GPRBUILD) -P $(ROOTDIR)/sudoku_solver.gpr
+$(ROOTDIR)/sudoku: $(ROOTDIR)/obj
+	$(GPRBUILD) -P $(ROOTDIR)/sudoku_solver.gpr -o $(ROOTDIR)/sudoku
 
 $(ROOTDIR)/obj/gnattest:
 	$(GNATTEST) --tests-dir=$(ROOTDIR)/tests \
