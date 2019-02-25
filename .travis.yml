@@ -1,0 +1,5 @@
+dist: xenial
+install:
+  - sudo apt-get install build-essential gnat gprbuild
+script:
+  - gprbuild
