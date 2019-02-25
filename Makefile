@@ -1,8 +1,14 @@
 GPRBUILD  := gprbuild
 GPRCLEAN  := gprclean
 GNATPROVE := gnatprove
+MKDIR     := mkdir
 
-all:
+all: main
+
+obj:
+	$(MKDIR) obj
+
+main: obj
 	$(GPRBUILD) -O0
 
 proof:
