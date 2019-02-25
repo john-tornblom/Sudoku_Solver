@@ -7,7 +7,7 @@ and thus evidence for compliance with respect to some requirements may be
 verified formally.
 
 ## Building
-TBD
+gprbuild sudoku_solver.gpr
 
 ## Running
 TBD
