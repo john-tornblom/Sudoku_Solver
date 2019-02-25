@@ -4,7 +4,6 @@ with Ada.Command_Line;
 With Sudoku_CSV;
 with Sudoku_Types;
 with Sudoku_Solver;
-with Sudoku_Rendering;
 
 procedure Main is
    Instance    : Sudoku_Types.Instance_Type;
