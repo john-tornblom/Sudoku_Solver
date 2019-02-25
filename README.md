@@ -10,8 +10,7 @@ verified formally.
 gprbuild sudoku_solver.gpr
 
 ## Running
-TBD
-
+./obj/main < examples/world_hardest_sudoku.csv 
 
 ## High-Level Requirements
 The Sudoku_Solver shall load an (incomplete) 9x9 sudoku instance from a file,
