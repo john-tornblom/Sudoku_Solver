@@ -167,9 +167,7 @@ package body Sudoku_Solver.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      null; -- Proved Using SPARK
 
 --  begin read only
    end Test_Is_Valid;
