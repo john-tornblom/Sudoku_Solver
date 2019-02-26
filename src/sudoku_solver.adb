@@ -83,6 +83,8 @@ package body Sudoku_Solver with SPARK_Mode is
          if Instance(I) = 0 then
             return False;
          end if;
+         pragma Loop_Invariant(for all J in Instance_Type'First .. I => 
+                                 Instance(J) /= 0);
       end loop;
       return True;
    end Is_Complete;
