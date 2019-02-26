@@ -25,7 +25,6 @@ package Sudoku_Solver with SPARK_Mode is
      Post => (if(for all I in Instance'Range => Instance(I) /= 0)
                 then Is_Complete'Result = True);
    
-   procedure Solve(Instance: in out Instance_Type; Is_Solved: in out Boolean) with
-     Post => (if(Is_Solved) then Is_Complete(Instance));
+   procedure Solve(Instance: in out Instance_Type; Is_Solved: in out Boolean);
    
 end Sudoku_Solver;
