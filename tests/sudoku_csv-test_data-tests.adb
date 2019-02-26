@@ -15,6 +15,9 @@ with System.Assertions;
 --
 --  end read only
 
+with Sudoku_CSV; use Sudoku_CSV;
+with Sudoku_Types; use Sudoku_Types;
+
 --  begin read only
 --  end read only
 package body Sudoku_CSV.Test_Data.Tests is
@@ -39,11 +42,27 @@ package body Sudoku_CSV.Test_Data.Tests is
 
       pragma Unreferenced (Gnattest_T);
 
+      Instance    : Instance_Type          := (others => 0);
+      Text_Length : constant               := 2 * (Board_Dimension**2);
+      New_Line    : constant String(1..1)  := "" & Character'Val(10);
+      Text        : String(1..Text_Length) := "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line;
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      for Digit in Digit_Type'Range loop
+	 for Index in Instance_Type'Range loop
+	    Instance(Index) := Digit;
+	    Text(1 + Integer(Index) * 2) := Character'Val(Digit + 48);
+	    Assert(Decode(Text) = Instance, "CSV Decoding Failed: " & Text);
+	 end loop;
+      end loop;
 
 --  begin read only
    end Test_Decode;
@@ -60,11 +79,27 @@ package body Sudoku_CSV.Test_Data.Tests is
 
       pragma Unreferenced (Gnattest_T);
 
+      Instance    : Instance_Type          := (others => 0);
+      Text_Length : constant               := 2 * (Board_Dimension**2);
+      New_Line    : constant String(1..1)  := "" & Character'Val(10);
+      Text        : String(1..Text_Length) := "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line &
+                                              "0,0,0,0,0,0,0,0,0" & New_Line;
    begin
+      for Digit in Digit_Type'Range loop
+	 for Index in Instance_Type'Range loop
+	    Instance(Index) := Digit;
+	    Text(1 + Integer(Index) * 2) := Character'Val(Digit + 48);
+	    Assert(Encode(Instance) = Text, "CSV Encoding Failed: " & Text);
+	 end loop;
+      end loop;
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
 
 --  begin read only
    end Test_Encode;
