@@ -22,19 +22,19 @@ package Sudoku_Solver.Test_Data.Tests is
    --  sudoku_solver.ads:9:4:Valid_Row
 
    procedure Test_Valid_Col_9cce8a (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:10:4:Valid_Col
+   --  sudoku_solver.ads:17:4:Valid_Col
 
    procedure Test_Valid_Box_3fe927 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:11:4:Valid_Box
+   --  sudoku_solver.ads:25:4:Valid_Box
 
    procedure Test_Is_Valid_23a9c7 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:13:4:Is_Valid
+   --  sudoku_solver.ads:27:4:Is_Valid
 
    procedure Test_Is_Complete_aef9ba (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:15:4:Is_Complete
+   --  sudoku_solver.ads:35:4:Is_Complete
 
    procedure Test_Solve_b76763 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:19:4:Solve
+   --  sudoku_solver.ads:41:4:Solve
 
 end Sudoku_Solver.Test_Data.Tests;
 --  end read only
