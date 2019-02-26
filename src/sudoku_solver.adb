@@ -4,21 +4,21 @@ package body Sudoku_Solver with SPARK_Mode is
          
    function Same_Row(I, J : Index_Type) return Boolean is
    begin
-      return (I/Board_Dimension = J/Board_Dimension);
+      return (I / Board_Dimension = J / Board_Dimension);
    end Same_Row;
       
    function Same_Col(I, J : Index_Type) return Boolean is
    begin
-      return ((I-J) mod Board_Dimension) = 0;
+      return ((I - J) mod Board_Dimension) = 0;
    end Same_Col;
    
    function Same_Box(I, J : Index_Type) return Boolean is
    begin
-      return ((I/(Board_Dimension*Box_Dimension) = 
-               J/(Board_Dimension*Box_Dimension)) 
+      return ((I / (Board_Dimension * Box_Dimension) = 
+               J / (Board_Dimension * Box_Dimension)) 
               and 
-                ((I mod Board_Dimension)/Box_Dimension =
-                 (J mod Board_Dimension)/Box_Dimension)
+                ((I mod Board_Dimension) / Box_Dimension =
+                 (J mod Board_Dimension) / Box_Dimension)
              );
    end Same_Box;
    
