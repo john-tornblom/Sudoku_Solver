@@ -2,8 +2,8 @@ dist: xenial
 language: generic
 
 install:
-  - sudo apt-get install build-essential gnat gprbuild
+  - sudo apt-get install build-essential gnat gprbuild asis-programs
 
 script:
-  - make
+  - make results
 
