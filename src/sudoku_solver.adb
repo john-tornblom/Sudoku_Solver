@@ -73,6 +73,13 @@ package body Sudoku_Solver with SPARK_Mode is
          if not Valid_Box(Instance, Id) then
             return False;
          end if;
+         
+         pragma Loop_Invariant(for all J in Group_Type'First .. Id => 
+                                 Valid_Row(Instance, J));
+         pragma Loop_Invariant(for all J in Group_Type'First .. Id => 
+                                 Valid_Col(Instance, J));
+         pragma Loop_Invariant(for all J in Group_Type'First .. Id => 
+                                 Valid_Box(Instance, J));
       end loop;
       return True;
    end Is_Valid;
