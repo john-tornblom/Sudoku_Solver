@@ -41,10 +41,10 @@ package body Sudoku_Solver.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
-
+      Assert(Same_Row(0, 0), "Same cell");
+      Assert(Same_Row(0, 8), "Same row");
+      Assert(not Same_Row(0, 9), "Not same row");
+      
 --  begin read only
    end Test_Same_Row;
 --  end read only
@@ -62,9 +62,9 @@ package body Sudoku_Solver.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      Assert(Same_Col(0, 0), "Same cell");
+      Assert(Same_Col(0, 9), "Same col");
+      Assert(not Same_Col(0, 8), "Not same col");
 
 --  begin read only
    end Test_Same_Col;
@@ -83,9 +83,9 @@ package body Sudoku_Solver.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      Assert(Same_Box(0, 0), "Same cell");
+      Assert(Same_Box(0, 2), "Same box");
+      Assert(not Same_Box(0, 3), "Not same box");
 
 --  begin read only
    end Test_Same_Box;
@@ -188,9 +188,7 @@ package body Sudoku_Solver.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      null; -- Proved Using SPARK
 
 --  begin read only
    end Test_Is_Complete;
@@ -206,13 +204,40 @@ package body Sudoku_Solver.Test_Data.Tests is
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
-
+      
+      Instance: Instance_Type := (8,0,0,0,0,0,0,0,0,
+				  0,0,3,6,0,0,0,0,0,
+				  0,7,0,0,9,0,2,0,0,
+				  0,5,0,0,0,7,0,0,0,
+				  0,0,0,0,4,5,7,0,0,
+				  0,0,0,1,0,0,0,3,0,
+				  0,0,1,0,0,0,0,6,8,
+				  0,0,8,5,0,0,0,1,0,
+				  0,9,0,0,0,0,4,0,0);
+      
+      Expected : Instance_Type := (8,1,2,7,5,3,6,4,9,
+				   9,4,3,6,8,2,1,7,5,
+				   6,7,5,4,9,1,2,8,3,
+				   1,5,4,2,3,7,8,9,6,
+				   3,6,9,8,4,5,7,2,1,
+				   2,8,7,1,6,9,5,3,4,
+				   5,2,1,9,7,4,3,6,8,
+				   4,3,8,5,2,6,9,1,7,
+				   7,9,6,3,1,8,4,5,2);
+      
+      Is_Solved : Boolean := False;
    begin
-
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
-
+      Solve(Instance, Is_Solved);
+      Assert(Expected = Instance and Is_Solved, 
+	     "Unable to solve the world's hardest sudoku");
+      
+      Instance(Instance_Type'First)     := 8;
+      Instance(Instance_Type'First + 1) := 8;
+      Instance(Instance_Type'Last)      := 0;
+      Solve(Instance, Is_Solved);
+      Assert(not Is_Solved, 
+	     "Solved an inpossible Sudoku problem");
+      
 --  begin read only
    end Test_Solve;
 --  end read only
