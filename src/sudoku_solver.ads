@@ -10,7 +10,16 @@ package Sudoku_Solver with SPARK_Mode is
    function Valid_Col(Instance: in Instance_Type; Col_Id : Group_Type) return Boolean;
    function Valid_Box(Instance: in Instance_Type; Box_Id : Group_Type) return Boolean;
    
-   function Is_Valid(Instance: in Instance_Type) return Boolean;
+   function Is_Valid(Instance: in Instance_Type) return Boolean with
+     Contract_Cases => 
+       ((for all I in Group_Type'Range => (Valid_Row(Instance, I) and 
+                                           Valid_Col(Instance, I) and 
+                                             Valid_Box(Instance, I))) => 
+          Is_Valid'Result = True,
+        (for some I in Group_Type'Range => (not Valid_Row(Instance, I) or 
+                                            not Valid_Col(Instance, I) or 
+                                              not Valid_Box(Instance, I))) => 
+          Is_Valid'Result = False);
    
    function Is_Complete(Instance: in Instance_Type) return Boolean with
      Post => (if(for all I in Instance'Range => Instance(I) /= 0)
