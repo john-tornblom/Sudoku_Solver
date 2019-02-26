@@ -44,7 +44,7 @@ package body Sudoku_CSV with SPARK_Mode is
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
                                               "0,0,0,0,0,0,0,0,0" & New_Line &
-                                              "0,0,0,0,0,0,0,0,0" & End_Of_Line;
+                                              "0,0,0,0,0,0,0,0,0" & New_Line;
    begin
       for Index in Instance_Type'Range loop
          case Instance(Index) is
