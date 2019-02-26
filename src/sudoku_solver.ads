@@ -22,8 +22,9 @@ package Sudoku_Solver with SPARK_Mode is
           Is_Valid'Result = False);
    
    function Is_Complete(Instance: in Instance_Type) return Boolean with
-     Post => (if(for all I in Instance'Range => Instance(I) /= 0)
-                then Is_Complete'Result = True);
+     Contract_Cases => 
+       ((for all I in Instance_Type'Range => Instance(I) /= 0) => Is_Complete'Result = True,
+        (for some I in Instance_Type'Range => Instance(I) = 0) => Is_Complete'Result = False);
    
    procedure Solve(Instance: in out Instance_Type; Is_Solved: in out Boolean);
    
