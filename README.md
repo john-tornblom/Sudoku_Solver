@@ -1,4 +1,6 @@
 # Sudoku_Solver
+[![Build Status](https://travis-ci.org/john-tornblom/Sudoku_Solver.svg?branch=master)](https://travis-ci.org/john-tornblom/Sudoku_Solver)
+
 Sudoku_Solver is an automated solver for the game
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku).
 The solver in written in
