@@ -10,31 +10,31 @@ package Sudoku_Solver.Test_Data.Tests is
    with null record;
 
    procedure Test_Same_Row_00231b (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:5:4:Same_Row
+   --  sudoku_solver.ads:6:4:Same_Row
 
    procedure Test_Same_Col_dd8fc9 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:6:4:Same_Col
+   --  sudoku_solver.ads:9:4:Same_Col
 
    procedure Test_Same_Box_f08e60 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:7:4:Same_Box
+   --  sudoku_solver.ads:12:4:Same_Box
 
    procedure Test_Valid_Row_6261d7 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:9:4:Valid_Row
+   --  sudoku_solver.ads:15:4:Valid_Row
 
    procedure Test_Valid_Col_9cce8a (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:17:4:Valid_Col
+   --  sudoku_solver.ads:24:4:Valid_Col
 
    procedure Test_Valid_Box_3fe927 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:25:4:Valid_Box
+   --  sudoku_solver.ads:33:4:Valid_Box
 
    procedure Test_Is_Valid_23a9c7 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:27:4:Is_Valid
+   --  sudoku_solver.ads:36:4:Is_Valid
 
    procedure Test_Is_Complete_aef9ba (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:35:4:Is_Complete
+   --  sudoku_solver.ads:45:4:Is_Complete
 
    procedure Test_Solve_b76763 (Gnattest_T : in out Test);
-   --  sudoku_solver.ads:41:4:Solve
+   --  sudoku_solver.ads:52:4:Solve
 
 end Sudoku_Solver.Test_Data.Tests;
 --  end read only

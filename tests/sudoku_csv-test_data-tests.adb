@@ -37,7 +37,7 @@ package body Sudoku_CSV.Test_Data.Tests is
    procedure Test_Decode_e3f1fd (Gnattest_T : in out Test) renames Test_Decode;
 --  id:2.2/e3f1fd872dcdf410/Decode/1/0/
    procedure Test_Decode (Gnattest_T : in out Test) is
-   --  sudoku_csv.ads:5:4:Decode
+   --  sudoku_csv.ads:6:4:Decode
 --  end read only
 
       pragma Unreferenced (Gnattest_T);
@@ -74,7 +74,7 @@ package body Sudoku_CSV.Test_Data.Tests is
    procedure Test_Encode_78c993 (Gnattest_T : in out Test) renames Test_Encode;
 --  id:2.2/78c9937af283a4d3/Encode/1/0/
    procedure Test_Encode (Gnattest_T : in out Test) is
-   --  sudoku_csv.ads:6:4:Encode
+   --  sudoku_csv.ads:9:4:Encode
 --  end read only
 
       pragma Unreferenced (Gnattest_T);

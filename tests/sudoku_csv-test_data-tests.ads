@@ -10,10 +10,10 @@ package Sudoku_CSV.Test_Data.Tests is
    with null record;
 
    procedure Test_Decode_e3f1fd (Gnattest_T : in out Test);
-   --  sudoku_csv.ads:5:4:Decode
+   --  sudoku_csv.ads:6:4:Decode
 
    procedure Test_Encode_78c993 (Gnattest_T : in out Test);
-   --  sudoku_csv.ads:6:4:Encode
+   --  sudoku_csv.ads:9:4:Encode
 
 end Sudoku_CSV.Test_Data.Tests;
 --  end read only
