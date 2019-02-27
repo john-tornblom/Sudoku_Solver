@@ -1,9 +1,19 @@
-dist: xenial
+os: linux
 language: generic
 
-install:
-  - sudo apt-get install build-essential gnat gprbuild asis-programs
+cache:
+  timeout: 1000
+  directories:
+  - $HOME/gnat-community
 
+install:
+  - mkdir -p $HOME/gnat-community
+  - wget -nc https://goo.gl/69zQF3 -O $HOME/gnat-community/install_script.qs || true
+  - wget -nc https://goo.gl/8k4UBL -O $HOME/gnat-community/setup.bin || true
+  - chmod +x $HOME/gnat-community/setup.bin
+  - $HOME/gnat-community/setup.bin --script $HOME/gnat-community/install_script.qs --platform minimal InstallPrefix=$HOME/gnat-install
+  
 script:
-  - make results
+  - export PATH=$HOME/gnat-install/bin:$PATH
+  - make test_results proofs
 
