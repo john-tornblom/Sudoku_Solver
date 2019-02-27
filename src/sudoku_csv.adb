@@ -63,6 +63,7 @@ package body Sudoku_CSV with SPARK_Mode is
          if Pos < Text'Last - 2 then
             Pos := Pos + 2;
          end if;
+         pragma Loop_Invariant(Pos <= Text_Length);
       end loop;
       
       return Text;
