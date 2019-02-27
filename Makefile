@@ -5,6 +5,7 @@ GNATPROVE := gnatprove
 
 MKDIR := mkdir
 RM    := rm
+MV    := mv
 
 ROOTDIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
@@ -28,7 +29,15 @@ results: $(ROOTDIR)/obj/gnattest/harness/test_driver
 	$(ROOTDIR)/obj/gnattest/harness/test_runner
 
 proofs:
-	$(GNATPROVE)
+	$(GNATPROVE) -P $(ROOTDIR)/sudoku_solver.gpr \
+		     -j0 \
+		     --report=all \
+		     --mode=all \
+		     --cwe \
+		     -f \
+		     --level=0
+	$(MV) $(ROOTDIR)/obj/gnatprove/gnatprove.out \
+	      $(ROOTDIR)/proof_summary.txt
 
 clean:
 	$(RM) -rf $(ROOTDIR)/obj
