@@ -3,8 +3,8 @@ with Sudoku_Types; use Sudoku_Types;
 package body Sudoku_CSV with SPARK_Mode is
    
    function Decode(Text : in String) return Instance_Type is
-      Instance : Instance_Type  := (others => Digit_Type'First);
-      Index    : Index_Type     := Index_Type'First;
+      Instance : Instance_Type := (others => Digit_Type'First);
+      Index    : Index_Type    := Index_Type'First;
       Is_Digit : Boolean;
    begin
       for Pos in Text'Range loop
@@ -32,7 +32,7 @@ package body Sudoku_CSV with SPARK_Mode is
    end Decode;
    
    function Encode(Instance : in Instance_Type) return String is
-      Pos         : Positive := Positive'First;
+      Pos         : Positive               := Positive'First;
       Text_Length : constant               := 2 * (Board_Dimension**2);
       New_Line    : constant String(1..1)  := "" & Character'Val(10);
       End_Of_Line : constant String(1..1)  := "" & Character'Val(0);

@@ -23,9 +23,9 @@ package body Sudoku_Solver with SPARK_Mode is
    end Same_Box;
    
    function Valid_Row(Instance: in Instance_Type; Row_Id : Group_Type) return Boolean is
-      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
-      Offset    : constant Index_Type := Row_Id * Board_Dimension;
       Digit     : Digit_Type;
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      Offset    : constant Index_Type                := Row_Id * Board_Dimension;
    begin
       for Index in Group_Type'Range loop
          Digit := Instance(Offset + Index);
@@ -40,9 +40,9 @@ package body Sudoku_Solver with SPARK_Mode is
    end Valid_Row;
    
    function Valid_Col(Instance: in Instance_Type; Col_Id : Group_Type) return Boolean is
-      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
-      Index     : constant Index_Type := Col_Id * Board_Dimension;
       Digit     : Digit_Type;
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      Index     : constant Index_Type                := Col_Id * Board_Dimension;
    begin
       for Offset in Group_Type'Range loop
          Digit := Instance(Offset + Index);
@@ -57,11 +57,11 @@ package body Sudoku_Solver with SPARK_Mode is
    end Valid_Col;
    
    function Valid_Box(Instance: in Instance_Type; Box_Id : Group_Type) return Boolean is
+      Digit     : Digit_Type;
       Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
       Offset    : constant Index_Type := (Box_Id mod Box_Dimension) * Box_Dimension + 
 	                                  ((Box_Id / Box_Dimension) * Box_Dimension * 
                                             Board_Dimension);
-      Digit     : Digit_Type;
    begin
       for Index in Group_Type'Range loop
          Digit := Instance(Offset + (Index mod Box_Dimension) + 
@@ -132,10 +132,10 @@ package body Sudoku_Solver with SPARK_Mode is
          end if;
       end loop;
             
-      for J in Digit_Type'Range loop
-         if not Digit_Map(J) then
+      for Digit in Digit_Type'Range loop
+         if not Digit_Map(Digit) then
             Candidate := Instance;
-            Candidate(I) := J;
+            Candidate(I) := Digit;
             Solve(Candidate, Is_Solved);
             if Is_Complete(Candidate) then
                Instance := Candidate;
