@@ -7,6 +7,19 @@ and thus evidence for compliance with respect to some requirements may be
 verified formally. Furthermore, Ada SPARK can also guarantee the absence of
 runtime errors, e.g. illegal assignments to ranged types.
 
+
+## Prerequisites
+To build, test, and prove properties of Sudoku_Solver, you need to install
+GNAT. You also need some essential development tools such as make which are
+often included with many POSIX-compatible operating systems. The community
+edition of GNAT is [available for free](https://www.adacore.com/download).
+Once downloaded and decompressed, add GNAT to your PATH environmental
+variable.
+
+```console
+john@localhost:~$ export PATH=/GNAT_INSTALL_PATH/bin:$PATH
+```
+
 ## Building
 ```console
 john@localhost:Sudoku_Solver$ make
