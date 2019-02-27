@@ -55,9 +55,24 @@ package body Sudoku_Solver with SPARK_Mode is
       end loop;
       return True;
    end Valid_Col;
-
+   
    function Valid_Box(Instance: in Instance_Type; Box_Id : Group_Type) return Boolean is
+      Digit_Map : array(Digit_Type'Range) of Boolean := (others => False);
+      Offset    : constant Index_Type := (Box_Id mod Box_Dimension) * Box_Dimension + 
+	                                  ((Box_Id / Box_Dimension) * Box_Dimension * 
+                                            Board_Dimension);
+      Digit     : Digit_Type;
    begin
+      for Index in Group_Type'Range loop
+         Digit := Instance(Offset + (Index mod Box_Dimension) + 
+			     (Index / Box_Dimension) * Board_Dimension);
+         if Digit_Map(Digit) then
+            return False;
+         end if;
+         if Digit /= 0 then
+            Digit_Map(Digit) := True;
+         end if;
+      end loop;
       return True;
    end Valid_Box;
 
