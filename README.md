@@ -55,7 +55,12 @@ and emits it to STDOUT using the Runtime component.
 ![Software Design](img/sw_design.png)
 
 ## Verification Procedure
-TBD
+Some parts of the verification is done by means of testing, while others are
+done using SPARK. Both procedures are automated by the make targets test_results
+and proofs, i.e.:
+```console
+john@localhost:Sudoku_Solver$ make test_results proofs
+```
 
 ## Reporting Bugs
 If you encounter problems with Sudoku_Solver, please
