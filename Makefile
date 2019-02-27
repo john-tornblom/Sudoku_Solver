@@ -25,7 +25,7 @@ $(ROOTDIR)/obj/gnattest:
 $(ROOTDIR)/obj/gnattest/harness/test_driver: $(ROOTDIR)/obj/gnattest
 	$(GPRBUILD) -P $(ROOTDIR)/obj/gnattest/harness/test_driver.gpr
 
-results: $(ROOTDIR)/obj/gnattest/harness/test_driver
+test_results: $(ROOTDIR)/obj/gnattest/harness/test_driver
 	$(ROOTDIR)/obj/gnattest/harness/test_runner
 
 proofs:
